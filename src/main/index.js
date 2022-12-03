@@ -1,6 +1,18 @@
 import React from "react";
-import "./style";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Pagination from "./components/Pagination";
+
+import "./style.css";
 const Main = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Header />
+      <Home />
+      <Pagination />
+      <Footer />
+    </div>
+  );
 };
 export default Main;

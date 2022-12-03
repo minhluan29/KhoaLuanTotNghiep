@@ -1453,15 +1453,15 @@ export const customersData = [
   },
   {
     CustomerID: 1040,
-    CustomerName: "Michael",
-    CustomerEmail: "michael@gmail.com",
+    CustomerName: "MinhLuan",
+    CustomerEmail: "minhluann291@gmail.com",
     ProjectName: "Weekly WP Theme",
     Status: "Cancel",
     CustomerImage: avatar2,
     StatusBg: "red",
     Weeks: "34",
-    Budget: "$16.5k",
-    Location: "USA",
+    Budget: "16k",
+    Location: "VietNam",
   },
 ];
 

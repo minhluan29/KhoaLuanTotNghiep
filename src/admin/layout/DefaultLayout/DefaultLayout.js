@@ -1,32 +1,18 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {
-  Ecommerce,
-  Orders,
-  Calendar,
-  Employees,
-  Stacked,
-  Pyramid,
-  Customers,
-  Kanban,
-  Line,
-  Area,
-  Bar,
-  Pie,
-  Financial,
-  ColorPicker,
-  ColorMapping,
-  Editor,
-} from "./pages";
-import "./style.css";
+  Navbar,
+  Footer,
+  Sidebar,
+  ThemeSettings,
+} from "../../../dashboard/components";
+import "./DefaultLayout.css";
 
-import { useStateContext } from "./contexts/ContextProvider";
+import { useStateContext } from "../../../dashboard/contexts/ContextProvider";
 
-const Dashboard = () => {
+const DefaultLayout = ({ children }) => {
   const {
     setCurrentColor,
     setCurrentMode,
@@ -49,7 +35,7 @@ const Dashboard = () => {
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       {/* <BrowserRouter> */}
-      {/* <div className="flex relative dark:bg-main-dark-bg">
+      <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <TooltipComponent content="Settings" position="Top">
             <button
@@ -81,13 +67,15 @@ const Dashboard = () => {
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
             <Navbar />
           </div>
+          {children}
+
           <div>{themeSettings && <ThemeSettings />}</div>
           <Footer />
         </div>
-      </div> */}
+      </div>
       {/* </BrowserRouter> */}
     </div>
   );
 };
 
-export default Dashboard;
+export default DefaultLayout;
