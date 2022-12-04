@@ -18,6 +18,65 @@ export const images = {
   category1: require("./category-01.png"),
   category2: require("./category-02.png"),
   category3: require("./category-03.png"),
+  japan: require("./flag/jp.gif"),
+  italy: require("./flag/it.gif"),
+  united: require("./flag/us.gif"),
+  germany: require("./flag/de.gif"),
+  england: require("./flag/flag-en.gif"),
+  austria: require("./flag/at.gif"),
+  taiwan: require("./flag/tw.gif"),
+  korea: require("./flag/kr.gif"),
+  france: require("./flag/fr.gif"),
+  india: require("./flag/in.gif"),
+  china: require("./flag/cn.gif"),
+  thailand: require("./flag/th.gif"),
+
+  honda: require("./japan/honda.jpg"),
+  kawasaki: require("./japan/kawasaki.jpg"),
+  suzuki: require("./japan/suzuki.jpg"),
+  yamaha: require("./japan/yamaha.jpg"),
+
+  piaggio: require("./italy/piaggio.jpg"),
+  ducati: require("./italy/ducati.jpg"),
+  benelli: require("./italy/benelli.jpg"),
+  agusta: require("./italy/mv-agusta.jpg"),
+  guzzi: require("./italy/36_moto-guzzi.jpg"),
+  lambretta: require("./italy/lambretta.jpg"),
+
+  harley: require("./united states/harley-davidson.jpg"),
+  aprilia: require("./united states/aprilia.jpg"),
+  vento: require("./united states/34_vento.jpg"),
+
+  bmw: require("./germany/bmw.jpg"),
+  sachs: require("./germany/sachs.jpg"),
+  minsk: require("./germany/32_minsk.jpg"),
+
+  royal: require("./england/royal-enfield.jpg"),
+  triumph: require("./england/triumph.jpg"),
+
+  ktm: require("./austria/ktm.jpg"),
+
+  sym: require("./taiwan/sym.jpg"),
+  kymco: require("./taiwan/kymco.jpg"),
+
+  daelim: require("./korea/daelim.jpg"),
+  daehan: require("./korea/daehan.jpg"),
+  hyosung: require("./korea/hyosung.jpg"),
+
+  mobylette: require("./france/mobylette.jpg"),
+
+  bajaj: require("./india/bajaj-pulsar.jpg"),
+
+  kengo: require("./china/30_kengo.png"),
+  bosscity: require("./china/33_bosscity.jpg"),
+  brixton: require("./china/37_brixton.jpg"),
+  cfmoto: require("./china/40_cfmoto.jpg"),
+  lifan: require("./china/42_lifan.jpg"),
+  keeway: require("./china/keeway.jpg"),
+  rebel: require("./china/rebel-usa.jpg"),
+  kengvisitoro: require("./china/visitor.jpg"),
+
+  gpx: require("./thailand/41_gpx.png"),
 };
 
 export const category = [images.category1, images.category2, images.category3];
@@ -90,4 +149,56 @@ export const cards = [
     title: "Name 12",
     price: "20$",
   },
+];
+
+export const brand1 = [
+  {
+    image: images.honda,
+    title: "HONDA",
+    amount: "374 xe",
+  },
+  {
+    image: images.kawasaki,
+    title: "KAWASAKI",
+    amount: "374 xe",
+  },
+  {
+    image: images.suzuki,
+    title: "SUZUKI",
+    amount: "374 xe",
+  },
+  {
+    image: images.yamaha,
+    title: "YAMAHA",
+    amount: "374 xe",
+  },
+];
+
+export const sidebar = [
+  "HONDA",
+
+  "YAMAHA",
+
+  "SUZUKI",
+
+  "KAWASAKI",
+
+  "DUCATI",
+
+  "BENELLI",
+];
+
+export const brandinfo = [
+  { image: images.japan, title: "Nhật Bản" },
+  { image: images.italy, title: "Ý" },
+  { image: images.united, title: "Mỹ" },
+  { image: images.germany, title: "Đức" },
+  { image: images.england, title: "Anh" },
+  { image: images.austria, title: "Áo" },
+  { image: images.taiwan, title: "Đài Loan" },
+  { image: images.korea, title: "Hàn Quốc" },
+  { image: images.france, title: "Pháp" },
+  { image: images.india, title: "Ấn Độ" },
+  { image: images.china, title: "Trung Quốc" },
+  { image: images.thailand, title: "Thái Lan" },
 ];

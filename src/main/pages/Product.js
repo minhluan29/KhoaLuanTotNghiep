@@ -3,7 +3,10 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { images } from "../data/homedata";
 import Footer from "../components/Footer";
-
+import Sidebar from "../components/Sidebar";
+import Cart from "../components/Cart";
+import Pagination from "../components/Pagination";
+import CategoryLayout from "../components/CategoryLayout";
 const Product = () => {
   return (
     <div>
@@ -11,9 +14,11 @@ const Product = () => {
 
       <Navbar />
 
-      <div style={{ textAlign: "-webkit-center" }}>
+      <div className="mt-4" style={{ textAlign: "-webkit-center" }}>
         <img src={images.bgevent} />
       </div>
+
+      <CategoryLayout />
 
       <Footer />
     </div>

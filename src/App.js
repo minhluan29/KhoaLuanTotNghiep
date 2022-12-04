@@ -21,6 +21,7 @@ import {
   Pyramid,
 } from "./dashboard/pages";
 import Product from "./main/pages/Product";
+import Brand from "./main/pages/Brand";
 
 const App = () => {
   return (
@@ -28,7 +29,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />}></Route>
-          <Route path="/product" element={<Product />}></Route>
+          <Route path="/product" element={<Product />} />
+          <Route path="/brand" element={<Brand />} />
 
           <Route path="/dashboard">
             <Route

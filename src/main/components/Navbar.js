@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -8,21 +9,21 @@ export const Navbar = () => {
           <div class="flex items-center">
             <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/"}
                   class="text-gray-900 dark:text-white hover:underline"
                   aria-current="page"
                 >
                   TRANG CHỦ
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/product"}
                   class="text-gray-900 dark:text-white hover:underline"
                 >
                   XE
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -33,12 +34,12 @@ export const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/brand"}
                   class="text-gray-900 dark:text-white hover:underline"
                 >
                   LOẠI XE
-                </a>
+                </Link>
               </li>
               <li>
                 <a
