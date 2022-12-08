@@ -15,6 +15,7 @@ import {
   FiStar,
   FiShoppingCart,
 } from "react-icons/fi";
+import { RiMotorbikeFill } from "react-icons/ri";
 import {
   BsKanban,
   BsBarChart,
@@ -524,6 +525,10 @@ export const links = [
     title: "Pages",
     links: [
       {
+        name: "items",
+        icon: <RiMotorbikeFill />,
+      },
+      {
         name: "orders",
         icon: <AiOutlineShoppingCart />,
       },
@@ -942,6 +947,58 @@ export const ordersGrid = [
     width: "150",
     textAlign: "Center",
   },
+];
+
+export const country = [
+  { name: "NHẬT BẢN" },
+  { name: "Ý" },
+  { name: "Mỹ" },
+  { name: "Đức" },
+  { name: "Anh" },
+  { name: "Áo" },
+  { name: "Đài Loan" },
+  { name: "Hàn Quốc" },
+  { name: "Pháp" },
+  { name: "Ấn Độ" },
+  { name: "Trung Quốc" },
+  { name: "Thái Lan" },
+];
+export const brandName = [
+  { name: "piaggio" },
+  { name: "ducati" },
+  { name: "benelli" },
+  { name: "mv agusta" },
+  { name: "moto guzzi" },
+  { name: "lambretta" },
+  { name: "harley-davidson" },
+  { name: "aprilia" },
+  { name: "vento" },
+  { name: "bmw" },
+  { name: "sachs" },
+  { name: "minsk" },
+  { name: "royal enfield" },
+  { name: "triumph" },
+  { name: "ktm" },
+  { name: "sym" },
+  { name: "kymco" },
+  { name: "daelim" },
+  { name: "daehan" },
+  { name: "hyosung" },
+  { name: "mobylette" },
+  { name: "bajaj pulsar" },
+  { name: "visitor" },
+  { name: "brixton" },
+  { name: "rebel usa" },
+  { name: "kengo" },
+  { name: "cfmoto" },
+  { name: "bosscity" },
+  { name: "lifan" },
+  { name: "keeway" },
+  { name: "gpx" },
+  { name: "HONDA" },
+  { name: "KAWASAKI" },
+  { name: "SUZUKI" },
+  { name: "YAMAHA" },
 ];
 
 export const customersData = [

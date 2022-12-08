@@ -74,7 +74,7 @@ export const images = {
   lifan: require("./china/42_lifan.jpg"),
   keeway: require("./china/keeway.jpg"),
   rebel: require("./china/rebel-usa.jpg"),
-  kengvisitoro: require("./china/visitor.jpg"),
+  visitor: require("./china/visitor.jpg"),
 
   gpx: require("./thailand/41_gpx.png"),
 };
@@ -151,26 +151,268 @@ export const cards = [
   },
 ];
 
-export const brand1 = [
+export const brand = [
   {
-    image: images.honda,
-    title: "HONDA",
-    amount: "374 xe",
+    name: "NHẬT BẢN",
+    icon: images.japan,
+    amount: "34 ",
+    card: [
+      {
+        image: images.honda,
+        title: "HONDA",
+        amount: "974",
+      },
+      {
+        image: images.kawasaki,
+        title: "KAWASAKI",
+        amount: "274 ",
+      },
+      {
+        image: images.suzuki,
+        title: "SUZUKI",
+        amount: "474 ",
+      },
+      {
+        image: images.yamaha,
+        title: "YAMAHA",
+        amount: "374",
+      },
+    ],
   },
   {
-    image: images.kawasaki,
-    title: "KAWASAKI",
-    amount: "374 xe",
+    name: "Ý",
+    icon: images.italy,
+    amount: "34 ",
+    card: [
+      {
+        image: images.piaggio,
+        title: "piaggio",
+        amount: "304 ",
+      },
+      {
+        image: images.ducati,
+        title: "ducati",
+        amount: "474 ",
+      },
+      {
+        image: images.benelli,
+        title: "benelli",
+        amount: "74 ",
+      },
+      {
+        image: images.agusta,
+        title: "mv agusta",
+        amount: "74 ",
+      },
+      {
+        image: images.guzzi,
+        title: "moto guzzi",
+        amount: "34 ",
+      },
+      {
+        image: images.lambretta,
+        title: "lambretta",
+        amount: "34",
+      },
+    ],
   },
   {
-    image: images.suzuki,
-    title: "SUZUKI",
-    amount: "374 xe",
+    name: "Mỹ",
+    icon: images.united,
+    amount: "34 ",
+    card: [
+      {
+        image: images.harley,
+        title: "harley-davidson",
+        amount: "74 ",
+      },
+      {
+        image: images.aprilia,
+        title: "aprilia",
+        amount: "74 ",
+      },
+      {
+        image: images.vento,
+        title: "vento",
+        amount: "74 ",
+      },
+    ],
   },
   {
-    image: images.yamaha,
-    title: "YAMAHA",
-    amount: "374 xe",
+    name: "đức",
+    icon: images.germany,
+    amount: "34 ",
+    card: [
+      {
+        image: images.bmw,
+        title: "bmw",
+        amount: "74 ",
+      },
+      {
+        image: images.sachs,
+        title: "sachs",
+        amount: "74 ",
+      },
+      {
+        image: images.minsk,
+        title: "minsk",
+        amount: "74 ",
+      },
+    ],
+  },
+  {
+    name: "anh",
+    icon: images.england,
+    amount: "34 ",
+    card: [
+      {
+        image: images.royal,
+        title: "royal enfield",
+        amount: "34 ",
+      },
+      {
+        image: images.triumph,
+        title: "triumph",
+        amount: "37 ",
+      },
+    ],
+  },
+  {
+    name: "Áo",
+    icon: images.austria,
+    amount: "34 ",
+    card: [
+      {
+        image: images.ktm,
+        title: "ktm",
+        amount: "37 ",
+      },
+    ],
+  },
+  {
+    name: "đài loan",
+    icon: images.taiwan,
+    amount: "34 ",
+    card: [
+      {
+        image: images.sym,
+        title: "sym",
+        amount: "37 ",
+      },
+      {
+        image: images.kymco,
+        title: "kymco",
+        amount: "374 ",
+      },
+    ],
+  },
+  {
+    name: "Hàn Quốc",
+    icon: images.korea,
+    amount: "34 ",
+
+    card: [
+      {
+        image: images.daelim,
+        title: "daelim",
+        amount: "34 ",
+      },
+      {
+        image: images.daehan,
+        title: "daehan",
+        amount: "374",
+      },
+      {
+        image: images.hyosung,
+        title: "hyosung",
+        amount: "74 ",
+      },
+    ],
+  },
+  {
+    name: "pháp",
+    icon: images.france,
+    amount: "34 ",
+
+    card: [
+      {
+        image: images.mobylette,
+        title: "mobylette",
+        amount: "34 ",
+      },
+    ],
+  },
+  {
+    name: "ấn độ",
+    icon: images.india,
+    amount: "74 ",
+    card: [
+      {
+        image: images.bajaj,
+        title: "bajaj pulsar",
+        amount: "74 ",
+      },
+    ],
+  },
+  {
+    name: "Trung quốc",
+    icon: images.china,
+    amount: "34 ",
+
+    card: [
+      {
+        image: images.visitor,
+        title: "visitor",
+        amount: "37 ",
+      },
+      {
+        image: images.brixton,
+        title: "brixton",
+        amount: "34 xe",
+      },
+      {
+        image: images.rebel,
+        title: "rebel usa",
+        amount: "74 ",
+      },
+      {
+        image: images.kengo,
+        title: "kengo",
+        amount: "37",
+      },
+      {
+        image: images.cfmoto,
+        title: "cfmoto",
+        amount: "74 ",
+      },
+      {
+        image: images.bosscity,
+        title: "bosscity",
+        amount: "34 ",
+      },
+      {
+        image: images.lifan,
+        title: "lifan",
+        amount: "74 ",
+      },
+      {
+        image: images.keeway,
+        title: "keeway",
+        amount: "37 ",
+      },
+    ],
+  },
+  {
+    name: "Thái lan",
+    icon: images.thailand,
+    amount: "34 ",
+    card: [
+      {
+        image: images.gpx,
+        title: "gpx",
+        amount: "34 ",
+      },
+    ],
   },
 ];
 

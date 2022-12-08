@@ -1,20 +1,36 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { cards } from "../data/homedata";
 
 const Cart = () => {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:6969/api/getAllItem").then((res) => {
+      let data = res.data.data;
+      setProduct(data);
+    });
+  }, []);
+
   return (
     <div>
       <div className="flex flex-wrap items-center justify-center gap-4 container mx-auto px-0">
-        {cards.map((item, index) => {
+        {product.map((item, index) => {
           return (
-            <div class=" max-w-[18rem] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div
+              key={index}
+              class=" max-w-[18rem] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+            >
               <div class="flex flex-col items-center pb-10">
-                <img src={item.image} />
+                <img
+                  class="w-400 h-72 aspect-[3/2] rounded-lg object-cover object-top border border-gray-200"
+                  src={item.image}
+                />
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                  {item.title}
+                  {item.name}
                 </h5>
                 <span class="text-sm text-gray-500 dark:text-gray-400">
-                  {item.price}
+                  {item.originalPrice}
                 </span>
                 <div class="flex mt-4 space-x-3 md:mt-6">
                   <a

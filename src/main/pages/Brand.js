@@ -2,7 +2,9 @@ import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import { brandinfo, images } from "../data/homedata";
+import { brand, brandinfo, images } from "../data/homedata";
+import { AiOutlineSearch } from "react-icons/ai";
+import Brandcard from "../components/Brandcard";
 
 const Brand = () => {
   return (
@@ -49,7 +51,8 @@ const Brand = () => {
             </div>
             <div className="flex text-sm">
               <div className="px-2">
-                <button className="button bg-primary-600 text-white font-semibold p-4">
+                <button className="flex gap-2 button bg-primary-600 text-white font-semibold p-4">
+                  <AiOutlineSearch />
                   HIỂN THỊ KẾT QUẢ ĐÃ CHỌN
                 </button>
               </div>
@@ -63,412 +66,52 @@ const Brand = () => {
 
           <hr className="m-4" />
 
+          <Brandcard />
           {/* Card brand  */}
-          <div className="flex  justify-start">
-            {/* Nhật  */}
-            <div className="px-6">
-              <div className="inline-flex gap-4 items-center py-3">
-                <div>
-                  <img src={images.japan} />
-                </div>
+          {/* <div className="flex justify-start">
+            {
+              (brand.map = (item, index) => {
+                return (
+                  <div className="px-6" key={index}>
+                    <div className="inline-flex gap-4 items-center py-3">
+                      <div>
+                        <img src={item.image} />
+                      </div>
 
-                <h1>NHẬT BẢN</h1>
-                <h2 className="text-gray-500 text-14 font-medium">
-                  (123456 xe)
-                </h2>
-              </div>
-
-              <div className="flex gap-3 py-3">
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.honda}
-                      />
+                      <h1>{item.name}</h1>
+                      <h2 className="text-gray-500 text-14 font-medium">
+                        {item.amount}
+                      </h2>
                     </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        HONDA
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        19.505 xe
-                      </span>
-                    </div>
+                    {
+                      (item.card.map = (card) => {
+                        <div className="flex gap-3 py-3">
+                          <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <div class="flex flex-col items-center">
+                              <div className="bg-stone-800 max-w-full">
+                                <img
+                                  class="w-14 h-14 m-[10px] rounded-full shadow-lg"
+                                  src={card.image}
+                                />
+                              </div>
+                              <div>
+                                <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
+                                  {card.title}
+                                </h5>
+                                <span class="text-sm text-black dark:text-gray-400">
+                                  {card.amount}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>;
+                      })
+                    }
                   </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.yamaha}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        YAMAHA
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        3.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.suzuki}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        SUZUKI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        1.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.kawasaki}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        KAWASAKI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        4.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Ý  */}
-            <div className="px-6">
-              <div className="inline-flex gap-4 items-center py-3">
-                <div>
-                  <img src={images.italy} />
-                </div>
-
-                <h1>Ý</h1>
-                <h2 className="text-gray-500 text-14 font-medium">
-                  (123456 xe)
-                </h2>
-              </div>
-
-              <div className="flex gap-3 py-3">
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.piaggio}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        PIAGGIO
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        19.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.ducati}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        DUCATI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        3.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.benelli}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        BENELLI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        1.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.agusta}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        MV AGUSTA
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        4.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.guzzi}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        GUZZI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        4.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.lambretta}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        LAMBRETTA
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        4.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Mỹ  */}
-            <div className="px-6">
-              <div className="inline-flex gap-4 items-center py-3">
-                <div>
-                  <img src={images.japan} />
-                </div>
-
-                <h1>NHẬT BẢN</h1>
-                <h2 className="text-gray-500 text-14 font-medium">
-                  (123456 xe)
-                </h2>
-              </div>
-
-              <div className="flex gap-3 py-3">
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.honda}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        HONDA
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        19.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.yamaha}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        YAMAHA
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        3.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.suzuki}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        SUZUKI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        1.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.kawasaki}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        KAWASAKI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        4.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Đức  */}
-            <div className="px-6">
-              <div className="inline-flex gap-4 items-center py-3">
-                <div>
-                  <img src={images.japan} />
-                </div>
-
-                <h1>NHẬT BẢN</h1>
-                <h2 className="text-gray-500 text-14 font-medium">
-                  (123456 xe)
-                </h2>
-              </div>
-
-              <div className="flex gap-3 py-3">
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.honda}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        HONDA
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        19.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.yamaha}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        YAMAHA
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        3.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.suzuki}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        SUZUKI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        1.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                  <div class="flex flex-col items-center">
-                    <div className="bg-stone-800 max-w-full">
-                      <img
-                        class="w-14 h-14 m-[10px] rounded-full shadow-lg"
-                        src={images.kawasaki}
-                      />
-                    </div>
-                    <div>
-                      <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
-                        KAWASAKI
-                      </h5>
-                      <span class="text-sm text-black dark:text-gray-400">
-                        4.505 xe
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Anh */}
-
-            {/* Áo */}
-
-            {/* Đài Loan  */}
-
-            {/* Hàn  */}
-
-            {/* Pháp  */}
-
-            {/* Ấn Độ */}
-
-            {/* Trung Quốc */}
-
-            {/* Thái Lan  */}
-          </div>
+                );
+              })
+            }
+          </div> */}
         </div>
       </div>
       <Footer />

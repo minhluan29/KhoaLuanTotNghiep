@@ -1,4 +1,5 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "./admin/layout/DefaultLayout/DefaultLayout";
 import Dashboard from "./dashboard";
@@ -19,16 +20,19 @@ import {
   Line,
   Orders,
   Pyramid,
+  Items,
 } from "./dashboard/pages";
 import Product from "./main/pages/Product";
 import Brand from "./main/pages/Brand";
-
+import SignIn from "./dashboard/pages/SignIn";
+import SignInUser from "./main/pages/SignInUser";
 const App = () => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />}></Route>
+          <Route path="/signInUser" element={<SignInUser />} />
           <Route path="/product" element={<Product />} />
           <Route path="/brand" element={<Brand />} />
 
@@ -44,7 +48,7 @@ const App = () => {
             {/* dashboard  */}
             {/* <Route path="" element={<Ecommerce />} /> */}
             <Route
-              path="ecommerce"
+              path="/dashboard/ecommerce"
               element={
                 <DefaultLayout>
                   <Ecommerce />
@@ -54,7 +58,15 @@ const App = () => {
 
             {/* pages  */}
             <Route
-              path="orders"
+              path="/dashboard/items"
+              element={
+                <DefaultLayout>
+                  <Items />
+                </DefaultLayout>
+              }
+            />
+            <Route
+              path="/dashboard/orders"
               element={
                 <DefaultLayout>
                   <Orders />
@@ -122,7 +134,10 @@ const App = () => {
             <Route path="pyramid" element={<Pyramid />} />
             <Route path="stacked" element={<Stacked />} />
           </Route>
+
+          <Route path="/signIn" element={<SignIn />} />
         </Routes>
+        <Toaster />
       </BrowserRouter>
     </div>
   );
