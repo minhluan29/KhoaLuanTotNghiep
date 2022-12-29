@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "./admin/layout/DefaultLayout/DefaultLayout";
@@ -26,6 +26,10 @@ import Product from "./main/pages/Product";
 import Brand from "./main/pages/Brand";
 import SignIn from "./dashboard/pages/SignIn";
 import SignInUser from "./main/pages/SignInUser";
+import SignUpUser from "./main/pages/SignUpUser";
+import ShoppingCart from "./main/components/ShoppingCart";
+import ProductDetail from "./main/components/ProductDetail";
+
 const App = () => {
   return (
     <div>
@@ -33,8 +37,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/signInUser" element={<SignInUser />} />
+          <Route path="/signUpUser" element={<SignUpUser />} />
           <Route path="/product" element={<Product />} />
           <Route path="/brand" element={<Brand />} />
+          <Route path="/shopping" element={<ShoppingCart />} />
 
           <Route path="/dashboard">
             <Route

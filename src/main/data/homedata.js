@@ -1,9 +1,12 @@
 import React from "react";
 
 export const images = {
+  iconbg: require("./iconbgxinxo.jpg"),
   background1: require("./bg1.jpg"),
   bgevent: require("./bg-event.jpg"),
   card1: require("./noimages.jpg"),
+  checkout1: require("./muaxe.jpg"),
+
   carousel1: require("./carousel1.jpg"),
   carousel2: require("./carousel2.jpg"),
   carousel3: require("./carousel3.jpg"),
@@ -79,7 +82,20 @@ export const images = {
   gpx: require("./thailand/41_gpx.png"),
 };
 
-export const category = [images.category1, images.category2, images.category3];
+export const category = [
+  {
+    image: images.category1,
+    title: "Phụ Tùng",
+  },
+  {
+    image: images.category2,
+    title: "Chợ Xe Máy",
+  },
+  {
+    image: images.carousel3,
+    title: "Tin Tức",
+  },
+];
 export const textcategory = ["SHOPPING", "MOTO MARKET", "WEBBIKE NEWS"];
 export const carousel = [
   images.carousel1,
@@ -443,4 +459,21 @@ export const brandinfo = [
   { image: images.india, title: "Ấn Độ" },
   { image: images.china, title: "Trung Quốc" },
   { image: images.thailand, title: "Thái Lan" },
+];
+
+export const shoppingData = [
+  {
+    image: images.card1,
+    name: "Xe Moto Honda",
+    price: "250",
+    brandName: "Honda",
+    cateName: "Xe Moto",
+  },
+  {
+    image: images.card1,
+    name: "Xe Moto Suzuki Xe Moto Suzuki",
+    price: "400",
+    brandName: "Suzuki",
+    cateName: "Xe Moto",
+  },
 ];

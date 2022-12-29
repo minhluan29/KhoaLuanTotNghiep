@@ -86,19 +86,19 @@ const Brand = () => {
                     {
                       (item.card.map = (card) => {
                         <div className="flex gap-3 py-3">
-                          <div class="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                            <div class="flex flex-col items-center">
+                          <div className="w-full h-full max-w-[80px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <div className="flex flex-col items-center">
                               <div className="bg-stone-800 max-w-full">
                                 <img
-                                  class="w-14 h-14 m-[10px] rounded-full shadow-lg"
+                                  className="w-14 h-14 m-[10px] rounded-full shadow-lg"
                                   src={card.image}
                                 />
                               </div>
                               <div>
-                                <h5 class="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
+                                <h5 className="mb-1 text-center text-[13px] text-gray-600 font-medium  dark:text-white">
                                   {card.title}
                                 </h5>
-                                <span class="text-sm text-black dark:text-gray-400">
+                                <span className="text-sm text-black dark:text-gray-400">
                                   {card.amount}
                                 </span>
                               </div>

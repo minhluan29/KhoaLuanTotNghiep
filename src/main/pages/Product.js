@@ -7,6 +7,7 @@ import Sidebar from "../components/Sidebar";
 import Cart from "../components/Cart";
 import Pagination from "../components/Pagination";
 import CategoryLayout from "../components/CategoryLayout";
+import ButtonOnTop from "../components/ButtonOnTop";
 const Product = () => {
   return (
     <div>

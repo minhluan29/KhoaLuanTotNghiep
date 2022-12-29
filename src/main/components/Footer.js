@@ -2,38 +2,57 @@ import React from "react";
 import { SiShopware } from "react-icons/si";
 import { FiChevronRight } from "react-icons/fi";
 import { images } from "../data/homedata";
+import ButtonOnTop from "./ButtonOnTop";
 
 const Footer = () => (
-  <footer class="p-4 bg-white sm:p-6 dark:bg-gray-900">
-    <div class="md:flex md:justify-between">
-      <div class="mb-6 md:mb-0">
-        <a href="#" class="flex items-center gap-3 ml-3">
+  <footer className="p-4 bg-white sm:p-6 dark:bg-gray-900">
+    <div className="md:flex md:justify-between">
+      <div className="mb-6 md:mb-0">
+        <a href="#" className="flex items-center gap-3 ml-3">
           <SiShopware />
-          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             ShopBike
           </span>
         </a>
+        <p className="text-xl text-gray-600 pl-4 py-4 uppercase font-bold">
+          THÔNG TIN LIÊN HỆ
+        </p>
+        <p className="text-14 text-gray-500 pl-4 font-medium">
+          331 QL1A, An Phú Đông, Quận 12, Thành phố Hồ Chí Minh
+        </p>
+        <p className="text-14 text-gray-500 pl-4 font-medium">
+          Giờ làm việc: Thứ 2 - 7: 8h00 - 17h00
+        </p>
+        <p className="text-14 text-gray-500 pl-4 font-medium">
+          Email: support@shopbike.vn
+        </p>
+        <p className="text-14 text-gray-500 pl-4 font-medium">
+          Số bàn: *** **** ****
+        </p>
+        <p className="text-14 text-gray-500 pl-4 font-medium">
+          Đường dây nóng: **** *** ***
+        </p>
       </div>
-      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
         <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
             SHOPPING
           </h2>
-          <ul class="text-gray-600 dark:text-gray-400">
-            <li class="mb-4">
-              <a href="#" class="hover:underline flex">
+          <ul className="text-gray-600 dark:text-gray-400">
+            <li className="mb-4">
+              <a href="#" className="hover:underline flex">
                 <FiChevronRight className="mt-1" />
                 By Moto
               </a>
             </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline flex">
+            <li className="mb-4">
+              <a href="#" className="hover:underline flex">
                 <FiChevronRight className="mt-1" />
                 By Brand
               </a>
             </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline flex">
+            <li className="mb-4">
+              <a href="#" className="hover:underline flex">
                 <FiChevronRight className="mt-1" />
                 Helmets
               </a>
@@ -41,18 +60,18 @@ const Footer = () => (
           </ul>
         </div>
         <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
             MOTO MARKET
           </h2>
-          <ul class="text-gray-600 dark:text-gray-400">
-            <li class="mb-4">
-              <a href="#" class="hover:underline flex">
+          <ul className="text-gray-600 dark:text-gray-400">
+            <li className="mb-4">
+              <a href="#" className="hover:underline flex">
                 <FiChevronRight className="mt-1" />
                 Big bike
               </a>
             </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline flex">
+            <li className="mb-4">
+              <a href="#" className="hover:underline flex">
                 <FiChevronRight className="mt-1" />
                 Brand
               </a>
@@ -60,18 +79,18 @@ const Footer = () => (
           </ul>
         </div>
         <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
             OTHER INFORMATION
           </h2>
-          <ul class="text-gray-600 dark:text-gray-400">
-            <li class="mb-4">
-              <a href="#" class="hover:underline flex">
+          <ul className="text-gray-600 dark:text-gray-400">
+            <li className="mb-4">
+              <a href="#" className="hover:underline flex">
                 <FiChevronRight className="mt-1" />
                 Privacy Policy
               </a>
             </li>
-            <li class="mb-4">
-              <a href="#" class="hover:underline flex">
+            <li className="mb-4">
+              <a href="#" className="hover:underline flex">
                 <FiChevronRight className="mt-1" />
                 Terms &amp; Conditions
               </a>
@@ -79,43 +98,43 @@ const Footer = () => (
           </ul>
         </div>
         <div>
-          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
             Payment method
           </h2>
-          <ul class="text-gray-600 dark:text-gray-400">
-            <li class="mb-4 flex">
+          <ul className="text-gray-600 dark:text-gray-400">
+            <li className="mb-4 flex">
               <img className="p-2 w-[80px]" src={images.payment1} />
               <img className="p-2 w-[80px]" src={images.payment2} />
               <img className="p-2 w-[80px]" src={images.payment3} />
             </li>
-            <li class="mb-4 flex">
+            <li className="mb-4 flex">
               <img className="p-2 w-[80px]" src={images.payment4} />
               <img className="p-2 w-[80px]" src={images.payment5} />
               <img className="p-2 w-[80px]" src={images.payment6} />
             </li>
-            <li class="mb-4">
+            <li className="mb-4">
               <img className="p-2 w-[200px]" src={images.payment7} />
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <div class=" sm:flex sm:items-center sm:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <div className=" sm:flex sm:items-center sm:justify-between">
+      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2022{" "}
-        <a href="https://flowbite.com/" class="hover:underline">
+        <a href="https://flowbite.com/" className="hover:underline">
           Flowbite™
         </a>
         . All Rights Reserved.
       </span>
-      <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+      <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
         <a
           href="#"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+          className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
         >
           <svg
-            class="w-5 h-5"
+            className="w-5 h-5"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -126,14 +145,14 @@ const Footer = () => (
               clip-rule="evenodd"
             />
           </svg>
-          <span class="sr-only">Facebook page</span>
+          <span className="sr-only">Facebook page</span>
         </a>
         <a
           href="#"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+          className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
         >
           <svg
-            class="w-5 h-5"
+            className="w-5 h-5"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -144,28 +163,28 @@ const Footer = () => (
               clip-rule="evenodd"
             />
           </svg>
-          <span class="sr-only">Instagram page</span>
+          <span className="sr-only">Instagram page</span>
         </a>
         <a
           href="#"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+          className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
         >
           <svg
-            class="w-5 h-5"
+            className="w-5 h-5"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
           >
             <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
           </svg>
-          <span class="sr-only">Twitter page</span>
+          <span className="sr-only">Twitter page</span>
         </a>
         <a
           href="#"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+          className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
         >
           <svg
-            class="w-5 h-5"
+            className="w-5 h-5"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -176,14 +195,14 @@ const Footer = () => (
               clip-rule="evenodd"
             />
           </svg>
-          <span class="sr-only">GitHub account</span>
+          <span className="sr-only">GitHub account</span>
         </a>
         <a
           href="#"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+          className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
         >
           <svg
-            class="w-5 h-5"
+            className="w-5 h-5"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -194,10 +213,11 @@ const Footer = () => (
               clip-rule="evenodd"
             />
           </svg>
-          <span class="sr-only">Dribbbel account</span>
+          <span className="sr-only">Dribbbel account</span>
         </a>
       </div>
     </div>
+    <ButtonOnTop />
   </footer>
 );
 

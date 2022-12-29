@@ -4,10 +4,11 @@ import CommonUtils from "../../utils/CommonUtils";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const ItemModal = (setModal) => {
+const ItemModal = ({ toggleModal, data }) => {
   let [maItem, setMaItem] = useState("");
   let [categorySelect, setCategorySelect] = useState(1);
   let [childrenSelect, setChildrenSelect] = useState("");
+  let [brandSelect, setBrandSelect] = useState([]);
 
   //var function getTotal() es5
   //es6 let const = () =>
@@ -17,19 +18,61 @@ const ItemModal = (setModal) => {
   let [state, setState] = useState({
     name: "",
     originalPrice: "",
-    category: "",
-    type: "2",
-    soluong: "",
-    mota: "",
+    cateId: "",
+    brandId: "",
+    qty: "",
+    des: "",
     photo: "",
-    trangthai: false,
+    status: false,
   });
   //scope
   let [categoryParent, setCategoryParent] = useState([]);
   let [categoryChildren, setCategoryChildren] = useState([]);
 
   useEffect(() => {
-    //Call api
+    if (data !== null) {
+      setState({
+        id: data.id,
+        name: data.name,
+        originalPrice: data.originalPrice,
+        cateId: data.cateId,
+        brandId: data.brandId,
+        qty: data.qty,
+        des: data.des,
+        photo: data.image,
+        status: data.status,
+      });
+    } else {
+      setState({
+        name: "",
+        originalPrice: "",
+        cateId: "",
+        brandId: "",
+        qty: "",
+        des: "",
+        photo: "",
+        status: "true",
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    //Call Brand api
+    const fetchApi = async () => {
+      let res = await axios
+        .get(`http://localhost:6969/api/getAllBrand`)
+        .then((res) => {
+          return res;
+        });
+      let callBrand = res.data.data;
+      setBrandSelect(callBrand);
+    };
+
+    fetchApi();
+  }, []);
+
+  useEffect(() => {
+    //Call Cate api
     const fetchApi = async () => {
       let res = await axios
         .get(`http://localhost:6969/api/getallcategorie`)
@@ -37,7 +80,7 @@ const ItemModal = (setModal) => {
           return res;
         });
       let Categorie = res.data.data;
-      console.log("coi api: ", Categorie);
+      // console.log("coi api: ", Categorie);
       if (Categorie && Categorie.length > 0) {
         let result = Categorie.filter((item) => {
           return item.is_parent === 1;
@@ -62,13 +105,33 @@ const ItemModal = (setModal) => {
       axios.post(`http://localhost:6969/api/addItem`, { state }).then((res) => {
         if (res.data.errCode === 0) {
           toast.success(res.data.errMessage);
-          return res, setModal(false);
+          toggleModal();
+          return res;
         } else {
           toast.error(res.data.errMessage);
         }
       });
     }, 1000);
   };
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    setTimeout(() => {
+      axios.put(`http://localhost:6969/api/editItem`, { state }).then((res) => {
+        if (res.data.errCode === 0) {
+          toast.success(res.data.errMessage);
+
+          // console.log("Checek: ");
+          toggleModal();
+          return res;
+        } else {
+          toast.error(res.data.errMessage);
+        }
+      });
+    }, 1000);
+  };
+
   const handleOnchangePhoto = async (e) => {
     let data = e.target.files;
     let files = data[0];
@@ -159,6 +222,7 @@ const ItemModal = (setModal) => {
                       </span>
                       <button
                         type="button"
+                        htmlFor="file-upload"
                         className="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       >
                         Change
@@ -245,13 +309,13 @@ const ItemModal = (setModal) => {
                     htmlFor="country"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Danh muc
+                    Danh Mục
                   </label>
                   <select
                     id="country"
                     name="country"
-                    value={state.category}
-                    onChange={(e) => handleOnchange(e, "category")}
+                    value={state.cateId}
+                    onChange={(e) => handleOnchange(e, "cateId")}
                     autoComplete="country-name"
                     className="mt-1 uppercase block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   >
@@ -279,24 +343,31 @@ const ItemModal = (setModal) => {
                       </>
                     )}
                   </select>
+
+                  {/* BrandId */}
+                  <label className="block text-sm font-medium text-gray-700">
+                    Loại Xe
+                  </label>
+                  <select
+                    onChange={(e) => handleOnchange(e, "brandId")}
+                    value={state.brandId}
+                    name="country"
+                    autoComplete="country-name"
+                    className="mt-1 uppercase block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  >
+                    {brandSelect.map((item, index) => {
+                      return (
+                        <option
+                          key={index}
+                          value={item.id}
+                          className="uppercase"
+                        >
+                          {item.name}
+                        </option>
+                      );
+                    })}
+                  </select>
                 </div>
-                {/* <div className="col-span-6 sm:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Quốc Gia
-                  </label>
-                  <Countryelector className="col-span-6 sm:col-span-3" />
-                </div> */}
-
-                {/* Hãng sản xuất */}
-
-                {/* <div className="col-span-6 sm:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Hãng
-                  </label>
-                  <Countryelector className="col-span-6 sm:col-span-3" />
-                </div> */}
-
-                {/* Mô tả  */}
 
                 <div className="col-span-6">
                   <label
@@ -307,8 +378,8 @@ const ItemModal = (setModal) => {
                   </label>
                   <input
                     type="text"
-                    value={state.mota}
-                    onChange={(e) => handleOnchange(e, "mota")}
+                    value={state.des}
+                    onChange={(e) => handleOnchange(e, "des")}
                     name="street-address"
                     id="street-address"
                     autoComplete="street-address"
@@ -328,8 +399,8 @@ const ItemModal = (setModal) => {
                   <input
                     type="text"
                     name="region"
-                    value={state.soluong}
-                    onChange={(e) => handleOnchange(e, "soluong")}
+                    value={state.qty}
+                    onChange={(e) => handleOnchange(e, "qty")}
                     id="region"
                     autoComplete="address-level1"
                     className="mt-1 block h-8 border-1 w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -348,8 +419,8 @@ const ItemModal = (setModal) => {
                   <input
                     type="text"
                     name="postal-code"
-                    value={state.trangthai}
-                    onChange={(e) => handleOnchange(e, "trangthai")}
+                    value={state.status}
+                    onChange={(e) => handleOnchange(e, "status")}
                     id="postal-code"
                     autoComplete="postal-code"
                     className="mt-1 h-8 border-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -361,13 +432,23 @@ const ItemModal = (setModal) => {
             {/* Save  */}
 
             <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
-              <button
-                type="submit"
-                onClick={(e) => handleSubmit(e)}
-                className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Save
-              </button>
+              {data === null ? (
+                <button
+                  type="submit"
+                  onClick={(e) => handleSubmit(e)}
+                  className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  Save
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  onClick={(e) => handleUpdate(e)}
+                  className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  ReSave
+                </button>
+              )}
             </div>
           </div>
         </form>

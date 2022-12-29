@@ -22,22 +22,22 @@ function Brandcard() {
                 {item.card.map((e) => {
                   return (
                     <div className="flex gap-3 w-[90px] h-[130px]">
-                      <div class="w-full h-full max-w-[90px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                        <div class="flex flex-col items-center max-w-full">
+                      <div className="w-full h-full max-w-[90px] max-h-[150px] bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div className="flex flex-col items-center max-w-full">
                           <div
                             className="bg-stone-800 max-w-full w-[90px] rounded-t-lg"
                             style={{ textAlign: "-webkit-center" }}
                           >
                             <img
-                              class="w-14 h-14 m-[10px] rounded-full shadow-lg"
+                              className="w-14 h-14 m-[10px] rounded-full shadow-lg"
                               src={e.image}
                             />
                           </div>
                           <div className="max-w-full">
-                            <h5 class="uppercase mb-1 text-center text-xs text-gray-600 font-medium  dark:text-white">
+                            <h5 className="uppercase mb-1 text-center text-xs text-gray-600 font-medium  dark:text-white">
                               {e.title}
                             </h5>
-                            <h4 class=" font-bold text-xs text-black text-center dark:text-gray-400">
+                            <h4 className=" font-bold text-xs text-black text-center dark:text-gray-400">
                               {e.amount}
                             </h4>
                           </div>
