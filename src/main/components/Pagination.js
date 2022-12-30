@@ -41,7 +41,7 @@ function Pagination() {
             <p className="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
               1
             </p>
-            <p className="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+            {/* <p className="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
               2
             </p>
             <p className="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
@@ -61,7 +61,7 @@ function Pagination() {
             </p>
             <p className="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
               8
-            </p>
+            </p> */}
           </div>
           <div className="flex items-center pt-3 text-gray-600 hover:text-indigo-700 cursor-pointer">
             <p className="text-sm font-medium leading-none mr-3">Next</p>

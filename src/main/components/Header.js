@@ -14,13 +14,14 @@ const Header = () => {
     }
   }, []);
 
-  let getData = JSON.parse(localStorage.getItem("product"));
-  console.log("coi thu thoi ah: ", getData);
+  const getData = JSON.parse(localStorage.getItem("product"));
   useEffect(() => {
-    if (getData) {
+    let checkData = getData;
+    if (checkData) {
       setCartNumber(getData.length);
     }
-  }, [getData]);
+  }, []);
+  // console.log("getdata la gi cho nay k co? ", getData);
 
   const logoutUser = async () => {
     localStorage.setItem(

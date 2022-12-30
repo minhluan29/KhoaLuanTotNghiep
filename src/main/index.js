@@ -8,19 +8,10 @@ import "./style.css";
 import ButtonOnTop from "./components/ButtonOnTop";
 
 const Main = () => {
-  let [render, setRender] = useState(0);
-
-  const hadleRender = () => {
-    console.log("check ++");
-
-    setRender(Math.random());
-  };
-
-  console.log("check render", render);
   return (
     <div>
       <Header />
-      <Home handleRender={() => hadleRender()} />
+      <Home />
       <Pagination />
       <Footer />
     </div>
