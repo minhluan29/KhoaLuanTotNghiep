@@ -66,13 +66,14 @@ const UserProfile = ({ logoutAdmin }) => {
           </div>
         ))}
       </div>
-      <div className="mt-5" onClick={() => logoutAdmin()}>
+      <div className="mt-5">
         <Button
           // color="white"
           // bgColor={currentColor}
           // borderRadius="10px"
           // width="full"
           className="w-full rounded-lg text-white "
+          onClick={() => logoutAdmin()}
           style={{ backgroundColor: { currentColor } }}
         >
           Logout

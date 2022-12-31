@@ -16,13 +16,13 @@ const Header = () => {
     }
   }, [setState]);
 
-  const getData = JSON.parse(localStorage.getItem("product"));
   useEffect(() => {
+    const getData = JSON.parse(localStorage.getItem("product"));
     let checkData = getData;
     if (checkData) {
       setCartNumber(getData.length);
     }
-  }, []);
+  }, [setCartNumber]);
   // console.log("getdata la gi cho nay k co? ", getData);
 
   const logoutUser = async () => {
