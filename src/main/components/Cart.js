@@ -6,6 +6,7 @@ import { cards } from "../data/homedata";
 import ProductDetail from "./ProductDetail";
 
 const Cart = ({ handleRender }) => {
+  console.log("check env :   ", process.env.REACT_APP_BACKEND_URL);
   const navigate = useNavigate();
   const [product, setProduct] = useState([]);
   const [showCartModal, setShowCartModal] = React.useState(false);
@@ -19,11 +20,13 @@ const Cart = ({ handleRender }) => {
   };
 
   const toggleModal = () => {
-    axios.get("http://localhost:6969/api/getAllItem").then((res) => {
-      let data = res.data.data;
-      setProduct(data);
-      setCheckLog(null);
-    });
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/getAllItem`)
+      .then((res) => {
+        let data = res.data.data;
+        setProduct(data);
+        setCheckLog(null);
+      });
 
     setShowCartModal(!showCartModal);
   };
@@ -93,33 +96,39 @@ const Cart = ({ handleRender }) => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:6969/api/getAllItem").then((res) => {
-      let data = res.data.data;
-      setProduct(data);
-      console.log("sao lỗi quài z tr oi:  ", res);
-    });
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/getAllItem`)
+      .then((res) => {
+        let data = res.data.data;
+        setProduct(data);
+        console.log("sao lỗi quài z tr oi:  ", res);
+      });
   }, []);
 
   const handleDetail = (id) => {
-    axios.get(`http://localhost:6969/api/getOneItem?id=${id}`).then((res) => {
-      if (res.data.errCode === 0) {
-        setCheckLog(res.data.data);
-        setShowCartModal(true);
-      } else {
-        toast.error(res.data.errMessage);
-      }
-    });
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/getOneItem?id=${id}`)
+      .then((res) => {
+        if (res.data.errCode === 0) {
+          setCheckLog(res.data.data);
+          setShowCartModal(true);
+        } else {
+          toast.error(res.data.errMessage);
+        }
+      });
   };
 
   const handleShopping = (id) => {
-    axios.get(`http://localhost:6969/api/getOneItem?id=${id}`).then((res) => {
-      if (res.data.errCode === 0) {
-        setUpdate(res.data.data);
-        setShowCartModal(true);
-      } else {
-        toast.error(res.data.errMessage);
-      }
-    });
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/getOneItem?id=${id}`)
+      .then((res) => {
+        if (res.data.errCode === 0) {
+          setUpdate(res.data.data);
+          setShowCartModal(true);
+        } else {
+          toast.error(res.data.errMessage);
+        }
+      });
   };
   console.log("sao lỗi quài z :  ", product);
 

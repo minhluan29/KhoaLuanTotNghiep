@@ -28,10 +28,14 @@ function SignUpUser() {
   };
 
   const handleSignUp = (e) => {
+    setLoading(true);
     console.log("state?: ", state);
     setTimeout(() => {
       axios
-        .post(`http://localhost:6969/api/registerAccountUser`, state)
+        .post(
+          `${process.env.REACT_APP_BACKEND_URL}/api/registerAccountUser`,
+          state
+        )
         .then((res) => {
           console.log("check log", res);
           if (res.data && res.data.errCode === 0) {
@@ -42,6 +46,7 @@ function SignUpUser() {
             toast.error(res.data.errMessage);
           }
         });
+      setLoading(false);
     }, 1000);
   };
 
