@@ -17,38 +17,44 @@ const Items = () => {
   };
 
   const toggleModal = () => {
-    axios.get("http://localhost:6969/api/getAllItem").then((res) => {
-      let data = res.data.data;
-      setProduct(data);
-      setUpdate(null);
-    });
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/getAllItem`)
+      .then((res) => {
+        let data = res.data.data;
+        setProduct(data);
+        setUpdate(null);
+      });
 
     setShowModal(!showModal);
   };
 
   const handleUpdate = (id) => {
-    axios.get(`http://localhost:6969/api/getOneItem?id=${id}`).then((res) => {
-      if (res.data.errCode === 0) {
-        setUpdate(res.data.data);
-        setShowModal(true);
-      } else {
-        toast.error(res.data.errMessage);
-      }
-    });
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/getOneItem?id=${id}`)
+      .then((res) => {
+        if (res.data.errCode === 0) {
+          setUpdate(res.data.data);
+          setShowModal(true);
+        } else {
+          toast.error(res.data.errMessage);
+        }
+      });
   };
 
   const handleDelete = async (id) => {
     axios
-      .delete(`http://localhost:6969/api/deleteItem?id=${id}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/api/deleteItem?id=${id}`)
       .then((res) => {
         console.log("tra ve: ", res);
         let xoa = res.data;
         if (xoa.errCode === 0) {
           toast.success(xoa.errMessage);
-          axios.get("http://localhost:6969/api/getAllItem").then((res) => {
-            let data = res.data.data;
-            setProduct(data);
-          });
+          axios
+            .get(`${process.env.REACT_APP_BACKEND_URL}/api/getAllItem`)
+            .then((res) => {
+              let data = res.data.data;
+              setProduct(data);
+            });
         } else {
           toast.error(xoa.errMessage);
         }
@@ -56,10 +62,12 @@ const Items = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:6969/api/getAllItem").then((res) => {
-      let data = res.data.data;
-      setProduct(data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/getAllItem`)
+      .then((res) => {
+        let data = res.data.data;
+        setProduct(data);
+      });
   }, []);
   console.log("Check data: ", product);
 

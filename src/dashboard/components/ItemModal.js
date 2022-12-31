@@ -60,7 +60,7 @@ const ItemModal = ({ toggleModal, data }) => {
     //Call Brand api
     const fetchApi = async () => {
       let res = await axios
-        .get(`http://localhost:6969/api/getAllBrand`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/getAllBrand`)
         .then((res) => {
           return res;
         });
@@ -75,7 +75,7 @@ const ItemModal = ({ toggleModal, data }) => {
     //Call Cate api
     const fetchApi = async () => {
       let res = await axios
-        .get(`http://localhost:6969/api/getallcategorie`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/getallcategorie`)
         .then((res) => {
           return res;
         });
@@ -102,15 +102,17 @@ const ItemModal = ({ toggleModal, data }) => {
     e.preventDefault();
 
     setTimeout(() => {
-      axios.post(`http://localhost:6969/api/addItem`, { state }).then((res) => {
-        if (res.data.errCode === 0) {
-          toast.success(res.data.errMessage);
-          toggleModal();
-          return res;
-        } else {
-          toast.error(res.data.errMessage);
-        }
-      });
+      axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/addItem`, { state })
+        .then((res) => {
+          if (res.data.errCode === 0) {
+            toast.success(res.data.errMessage);
+            toggleModal();
+            return res;
+          } else {
+            toast.error(res.data.errMessage);
+          }
+        });
     }, 1000);
   };
 
@@ -118,17 +120,19 @@ const ItemModal = ({ toggleModal, data }) => {
     e.preventDefault();
 
     setTimeout(() => {
-      axios.put(`http://localhost:6969/api/editItem`, { state }).then((res) => {
-        if (res.data.errCode === 0) {
-          toast.success(res.data.errMessage);
+      axios
+        .put(`${process.env.REACT_APP_BACKEND_URL}/api/editItem`, { state })
+        .then((res) => {
+          if (res.data.errCode === 0) {
+            toast.success(res.data.errMessage);
 
-          // console.log("Checek: ");
-          toggleModal();
-          return res;
-        } else {
-          toast.error(res.data.errMessage);
-        }
-      });
+            // console.log("Checek: ");
+            toggleModal();
+            return res;
+          } else {
+            toast.error(res.data.errMessage);
+          }
+        });
     }, 1000);
   };
 

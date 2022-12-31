@@ -6,7 +6,7 @@ import { userProfileData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 import avatar from "../data/avatar.jpg";
 
-const UserProfile = () => {
+const UserProfile = ({ logoutAdmin }) => {
   const { currentColor } = useStateContext();
 
   return (
@@ -66,14 +66,17 @@ const UserProfile = () => {
           </div>
         ))}
       </div>
-      <div className="mt-5">
+      <div className="mt-5" onClick={() => logoutAdmin()}>
         <Button
-          color="white"
-          bgColor={currentColor}
-          text="Logout"
-          borderRadius="10px"
-          width="full"
-        />
+          // color="white"
+          // bgColor={currentColor}
+          // borderRadius="10px"
+          // width="full"
+          className="w-full rounded-lg text-white "
+          style={{ backgroundColor: { currentColor } }}
+        >
+          Logout
+        </Button>
       </div>
     </div>
   );

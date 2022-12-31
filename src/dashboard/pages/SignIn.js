@@ -21,25 +21,36 @@ export default function SignIn() {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    console.log("check data submit", email, password);
-    // let data = {};
-    // data.email = email;
-    // data.password = password;
+
     setLoading(true);
+
     setTimeout(() => {
       axios
-        .post(`http://localhost:6969/api/loginAdmin`, { email, password })
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/loginAdmin`, {
+          email,
+          password,
+        })
         .then((res) => {
+          console.log("check data submit", res);
+
           if (res.data.errCode === 0) {
             toast.success(res.data.errMessage);
+
+            localStorage.setItem(
+              "currentAdmin",
+              JSON.stringify({
+                email: res.data.data.email,
+                fullName: res.data.data.fullName,
+              })
+            );
+
             navigate("/dashboard");
           } else {
-            toast.error(res.data.errMessage);
-
             setLoading(false);
+            toast.error(res.data.errMessage);
           }
         });
-    }, 3000);
+    }, 2000);
   };
 
   return (

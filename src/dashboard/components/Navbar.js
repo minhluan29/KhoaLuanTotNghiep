@@ -27,7 +27,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   </TooltipComponent>
 );
 
-const Navbar = () => {
+const Navbar = ({ logoutAdmin }) => {
   const {
     currentColor,
     activeMenu,
@@ -110,7 +110,9 @@ const Navbar = () => {
         {isClicked.cart && <Cart />}
         {isClicked.chat && <Chat />}
         {isClicked.notification && <Notification />}
-        {isClicked.userProfile && <UserProfile />}
+        {isClicked.userProfile && (
+          <UserProfile logoutAdmin={() => logoutAdmin()} />
+        )}
       </div>
     </div>
   );

@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { FiShoppingCart } from "react-icons/fi";
 import { SiShopware } from "react-icons/si";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [state, setState] = useState(null);
   const [cartNumber, setCartNumber] = useState(0);
-
+  console.log("user la cai gi: ", state);
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("currentUser"));
     if (items) {
       setState(items);
     }
-  }, []);
+  }, [setState]);
 
   const getData = JSON.parse(localStorage.getItem("product"));
   useEffect(() => {
@@ -34,6 +36,14 @@ const Header = () => {
     const items = JSON.parse(localStorage.getItem("currentUser"));
     if (items) {
       setState(items);
+    }
+  };
+  const hanldeOnCart = () => {
+    if (state && state.email !== null) {
+      navigate("/shopping");
+    } else {
+      navigate("/signInUser");
+      toast.error("Vui lòng đăng nhập");
     }
   };
 
@@ -191,8 +201,8 @@ const Header = () => {
               </span>
             </Link>
             <div className="flex items-center lg:order-2">
-              <Link
-                to={"/shopping"}
+              <div
+                onClick={() => hanldeOnCart()}
                 className="lg:p-2 hover:bg-gray-50 rounded-lg relative"
               >
                 <FiShoppingCart className="text-xl" />
@@ -203,7 +213,7 @@ const Header = () => {
                     </div>
                   </>
                 )}
-              </Link>
+              </div>
 
               {state && state.email !== null ? (
                 <>
