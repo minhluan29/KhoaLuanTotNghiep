@@ -26,7 +26,7 @@ const ShoppingCart = () => {
       handleTotalPrice(res);
       setData(res);
     }
-  }, []);
+  }, [setData]);
 
   const handleTotalPrice = (data) => {
     let arr = [];

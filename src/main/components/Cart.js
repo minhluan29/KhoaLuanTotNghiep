@@ -14,6 +14,15 @@ const Cart = ({ handleRender }) => {
   const [checkLog, setCheckLog] = useState(null);
   const [state, setState] = useState([]);
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("currentUser"));
+    if (items) {
+      setUser(items);
+    }
+  }, [setUser]);
+
   const closeModal = () => {
     // setCheckLog(null);
     setShowCartModal(false);
@@ -34,7 +43,7 @@ const Cart = ({ handleRender }) => {
   useEffect(() => {
     const getData = getDataStore();
     setState(getData);
-  }, []);
+  }, [setState]);
 
   const getDataStore = () => {
     let getData = JSON.parse(localStorage.getItem("product"));
@@ -54,7 +63,6 @@ const Cart = ({ handleRender }) => {
         let raBien = state;
         localStorage.setItem("product", JSON.stringify([...raBien, data]));
         setState([...raBien, data]);
-        handleRender();
       } else {
         console.log("Co tim thay ne: ", test);
       }
@@ -65,34 +73,38 @@ const Cart = ({ handleRender }) => {
       }
       localStorage.setItem("product", JSON.stringify(Arr));
       setState(Arr);
-      handleRender();
     }
   };
 
   const handleBuy = (data) => {
+    if (user && user.email !== null) {
+      if (state && state.length > 0) {
+        let test = state.find((item) => {
+          return item.id === data.id;
+        });
+
+        if (test === undefined) {
+          let raBien = state;
+          localStorage.setItem("product", JSON.stringify([...raBien, data]));
+          setState([...raBien, data]);
+          navigate("/shopping");
+        } else {
+          console.log("Co tim thay ne: ", test);
+          navigate("/shopping");
+        }
+      } else {
+        let Arr = [];
+        if (data) {
+          Arr.push(data);
+        }
+        localStorage.setItem("product", JSON.stringify(Arr));
+        setState(Arr);
+      }
+    } else {
+      navigate("/signInUser");
+      toast.error("Vui lòng đăng nhập");
+    }
     // localStorage.getItem("product", JSON.stringify(Arr));
-    if (state && state.length > 0) {
-      let test = state.find((item) => {
-        return item.id === data.id;
-      });
-
-      if (test === undefined) {
-        let raBien = state;
-        localStorage.setItem("product", JSON.stringify([...raBien, data]));
-        setState([...raBien, data]);
-        navigate("/shopping");
-      } else {
-        console.log("Co tim thay ne: ", test);
-        navigate("/shopping");
-      }
-    } else {
-      let Arr = [];
-      if (data) {
-        Arr.push(data);
-      }
-      localStorage.setItem("product", JSON.stringify(Arr));
-      setState(Arr);
-    }
   };
 
   useEffect(() => {
@@ -144,7 +156,7 @@ const Cart = ({ handleRender }) => {
         </>
       ) : null}
 
-      <div className="flex flex-wrap items-center justify-center gap-4 container mx-auto px-0">
+      <div className="flex flex-wrap items-center justify-start gap-4 container mx-auto px-0">
         {product === undefined && !product ? (
           <div className="text-center text-red-500">
             Không tìm thấy sản phẩm
@@ -163,7 +175,7 @@ const Cart = ({ handleRender }) => {
                       src={item.image}
                       onClick={() => handleDetail(item.id)}
                     />
-                    <h5 className="mb-1 text-xl mt-5 font-medium text-gray-900 dark:text-white">
+                    <h5 className="mb-1 uppercase text-xl mt-5 font-medium text-gray-900 dark:text-white">
                       {item.name}
                     </h5>
                     <span className="text-sm text-gray-500 dark:text-gray-400">
