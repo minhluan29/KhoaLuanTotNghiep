@@ -87,14 +87,11 @@ const ShoppingCart = () => {
 
       //
     }
-
+    setLoading(false);
     toast.success("Đặt hàng thành công !");
-    // navigate("/");
-    // handleDelete();
+    navigate("/");
+    handleDelete();
   };
-
-  //1 xe chi co the co 1 chiec thoi ha? khong co so luong a
-  //Alo, u can hear me?
 
   return (
     <div className="relative mx-auto w-full bg-white">
