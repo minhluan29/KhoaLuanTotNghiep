@@ -900,11 +900,17 @@ export const userProfileData = [
 ];
 
 export const ordersGrid = [
+  // {
+  //   headerText: "Image",
+  //   template: gridOrderImage,
+  //   textAlign: "Center",
+  //   width: "120",
+  // },
   {
-    headerText: "Image",
-    template: gridOrderImage,
-    textAlign: "Center",
+    field: "OrderID",
+    headerText: "Order ID",
     width: "120",
+    textAlign: "Center",
   },
   {
     field: "OrderItems",
@@ -933,12 +939,6 @@ export const ordersGrid = [
     field: "OrderItems",
     textAlign: "Center",
     width: "120",
-  },
-  {
-    field: "OrderID",
-    headerText: "Order ID",
-    width: "120",
-    textAlign: "Center",
   },
 
   {

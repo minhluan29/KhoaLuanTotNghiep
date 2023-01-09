@@ -35,6 +35,7 @@ function SignInUser() {
             localStorage.setItem(
               "currentUser",
               JSON.stringify({
+                id: res.data.data.id,
                 email: res.data.data.email,
                 fullName: res.data.data.fullName,
               })

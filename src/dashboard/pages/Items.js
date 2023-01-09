@@ -69,7 +69,6 @@ const Items = () => {
         setProduct(data);
       });
   }, []);
-  console.log("Check data: ", product);
 
   return (
     <>

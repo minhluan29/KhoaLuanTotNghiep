@@ -36,7 +36,6 @@ const DefaultLayout = ({ children }) => {
     // if (items) {
     //   setState(items);
     // }
-    console.log("logoutttttttttttt");
   };
 
   const {

@@ -59,15 +59,42 @@ const ShoppingCart = () => {
     }
   };
 
-  const handleOnCart = () => {
+  const handleOnCart = async () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast.success("Đặt hàng thành công !");
-      navigate("/");
-      handleDelete();
-    }, 1000);
+    const res = await getDataStore();
+    const user = await JSON.parse(localStorage.getItem("currentUser"));
+
+    if (res && res.length > 0) {
+      let arrItem = [];
+
+      res.forEach((item) => {
+        arrItem.push(+item.id);
+
+        return arrItem;
+      });
+
+      axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/create-order`, {
+          userId: user.id,
+          itemId: arrItem.toString(),
+          priceTotal: nonTotal,
+          quantity: arrItem.length,
+          status: "new",
+        })
+        .then((res) => {
+          console.log("checkkk res from order", res.data);
+        });
+
+      //
+    }
+
+    toast.success("Đặt hàng thành công !");
+    // navigate("/");
+    // handleDelete();
   };
+
+  //1 xe chi co the co 1 chiec thoi ha? khong co so luong a
+  //Alo, u can hear me?
 
   return (
     <div className="relative mx-auto w-full bg-white">

@@ -113,7 +113,6 @@ const Cart = ({ handleRender }) => {
       .then((res) => {
         let data = res.data.data;
         setProduct(data);
-        console.log("sao lỗi quài z tr oi:  ", res);
       });
   }, []);
 
