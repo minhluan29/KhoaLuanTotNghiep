@@ -85,12 +85,11 @@ const ShoppingCart = () => {
           console.log("checkkk res from order", res.data);
         });
 
-      //
+      toast.success("Đặt hàng thành công !");
+      setLoading(false);
+      navigate("/");
+      handleDelete();
     }
-    setLoading(false);
-    toast.success("Đặt hàng thành công !");
-    navigate("/");
-    handleDelete();
   };
 
   return (
