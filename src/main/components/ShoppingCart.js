@@ -63,33 +63,34 @@ const ShoppingCart = () => {
     setLoading(true);
     const res = await getDataStore();
     const user = await JSON.parse(localStorage.getItem("currentUser"));
+    setTimeout(() => {
+      if (res && res.length > 0) {
+        let arrItem = [];
 
-    if (res && res.length > 0) {
-      let arrItem = [];
+        res.forEach((item) => {
+          arrItem.push(+item.id);
 
-      res.forEach((item) => {
-        arrItem.push(+item.id);
-
-        return arrItem;
-      });
-
-      axios
-        .post(`${process.env.REACT_APP_BACKEND_URL}/api/create-order`, {
-          userId: user.id,
-          itemId: arrItem.toString(),
-          priceTotal: nonTotal,
-          quantity: arrItem.length,
-          status: "new",
-        })
-        .then((res) => {
-          console.log("checkkk res from order", res.data);
+          return arrItem;
         });
 
-      toast.success("Đặt hàng thành công !");
-      setLoading(false);
-      navigate("/");
-      handleDelete();
-    }
+        axios
+          .post(`${process.env.REACT_APP_BACKEND_URL}/api/create-order`, {
+            userId: user.id,
+            itemId: arrItem.toString(),
+            priceTotal: nonTotal,
+            quantity: arrItem.length,
+            status: "new",
+          })
+          .then((res) => {
+            console.log("checkkk res from order", res.data);
+          });
+
+        toast.success("Đặt hàng thành công !");
+        setLoading(false);
+        navigate("/");
+        handleDelete();
+      }
+    }, 1000);
   };
 
   return (
